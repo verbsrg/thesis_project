@@ -17,6 +17,7 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import AnonymousRoute from "./components/AnonymousRoute";
 import ForgotPassoword from "./pages/ForgotPasswordPage";
 import UpdatePassword from "./pages/UpdatePasswordPage";
+import RedirectPage from "./pages/RedirectPage";
 
 const router = createBrowserRouter([
   {
@@ -58,6 +59,14 @@ const router = createBrowserRouter([
           <ProtectedRoute>
             <UpdatePassword />
           </ProtectedRoute>
+        ),
+      },
+      {
+        path: "/redirect",
+        element: (
+          <AnonymousRoute>
+            <RedirectPage />
+          </AnonymousRoute>
         ),
       },
       {
