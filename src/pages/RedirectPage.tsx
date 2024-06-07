@@ -1,6 +1,5 @@
-import { Loader2 } from "lucide-react";
-import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+import { Link, useLocation } from "react-router-dom";
 
 export default function RedirectPage() {
   const location = useLocation();
@@ -8,22 +7,22 @@ export default function RedirectPage() {
   const magicLink = queryParams.get("link");
   const type = queryParams.get("type");
 
-  useEffect(() => {
-    if (magicLink) {
-      window.location.href = magicLink;
-    } else {
-      window.location.href = "/";
-    }
-  }, [magicLink]);
-
-  return (
-    <div className="flex flex-col items-center justify-center mt-4">
-      <h1 className="text-2xl">
-        {type === "recovery"
-          ? "Přesměrování na stránku pro obnovení hesla..."
-          : "Přesměrování na stránku pro přihlášení..."}
-      </h1>
-      <Loader2 className="animate-spin mt-4" size={32} />
-    </div>
-  );
+  if (magicLink) {
+    return (
+      <div className="flex flex-col items-center justify-center mt-4">
+        <h1 className="text-2xl mb-4">Pro pokračování stiskněte tlačítko:</h1>
+        {type === "recovery" ? (
+          <Button>
+            <Link to={magicLink}>Resetovat heslo</Link>
+          </Button>
+        ) : (
+          <Button>
+            <Link to={magicLink}>Přihlášit se</Link>
+          </Button>
+        )}
+      </div>
+    );
+  } else {
+    window.location.href = "/";
+  }
 }
