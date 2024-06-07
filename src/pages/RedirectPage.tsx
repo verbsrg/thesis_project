@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 export default function RedirectPage() {
   const location = useLocation();
@@ -13,11 +13,11 @@ export default function RedirectPage() {
         <h1 className="text-2xl mb-4">Pro pokračování stiskněte tlačítko:</h1>
         {type === "recovery" ? (
           <Button>
-            <Link to={magicLink}>Resetovat heslo</Link>
+            <a href={magicLink}>Resetovat heslo</a>
           </Button>
         ) : (
           <Button>
-            <Link to={magicLink}>Přihlášit se</Link>
+            <a href={magicLink}>Přihlášit se</a>
           </Button>
         )}
       </div>
