@@ -46,20 +46,21 @@ export default function SignUp() {
     } else {
       toast({
         title: "Registrace",
-        description: "Na vaši emailovou adresu byl zaslan aktiváční odkaz",
+        description:
+          "Na vaši emailovou adresu byl zaslan jednorázový aktiváční kód",
         variant: "success",
       });
-      navigate("/signin");
+      navigate(`/verify-otp?type=signup&email=${email}`);
     }
   };
 
   return (
     <div className="flex flex-col items-center justify-center">
       <h1 className="text-2xl mt-4">Registrace</h1>
-      <Alert className="w-[400px] my-2">
+      <Alert className="w-auto m-2">
         <AlertTitle className="flex">
-          <AlertCircle className="h-4 w-4 mr-1" />
-          Na zadanou adresu bude zaslán potvrzovací e-mail.
+          <AlertCircle className="h-4 w-4 mr-3" />
+          Na zadanou adresu bude zaslán e-mail s jednorázovým kódem.
         </AlertTitle>
         <AlertDescription className="flex justify-center">
           Pokud zpravu nenajdete, podívejte se do spamu.

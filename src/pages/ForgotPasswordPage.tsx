@@ -3,6 +3,7 @@ import { Input } from "@/components/ui/input";
 import { useToast } from "@/components/ui/use-toast";
 import { supabase } from "@/lib/supabaseClient";
 import { SubmitHandler, useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 
 type FormFields = {
   email: string;
@@ -11,6 +12,7 @@ type FormFields = {
 const DOMAIN = "@vse.cz";
 
 export default function ForgotPassoword() {
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -29,9 +31,7 @@ export default function ForgotPassoword() {
       return;
     }
 
-    const { error } = await supabase.auth.resetPasswordForEmail(email, {
-      redirectTo: `${import.meta.env.VITE_APP_HOST}/update-password`,
-    });
+    const { error } = await supabase.auth.resetPasswordForEmail(email);
     if (error) {
       setError("root", {
         message: error.message,
@@ -39,9 +39,11 @@ export default function ForgotPassoword() {
     } else {
       toast({
         title: "Obnovení hesla",
-        description: "Na váš e-mail byl zaslán odkaz pro obnovení hesla.",
+        description:
+          "Na váš e-mail byl zaslán jednorázový kód pro obnovení hesla.",
         variant: "success",
       });
+      navigate(`/verify-otp?type=recovery&email=${email}`);
     }
   };
 
