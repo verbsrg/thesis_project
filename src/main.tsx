@@ -17,7 +17,7 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import AnonymousRoute from "./components/AnonymousRoute";
 import ForgotPassoword from "./pages/ForgotPasswordPage";
 import UpdatePassword from "./pages/UpdatePasswordPage";
-import RedirectPage from "./pages/RedirectPage";
+import VerifyOTPPage from "./pages/VerifyOTPPage";
 
 const router = createBrowserRouter([
   {
@@ -62,10 +62,10 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/redirect",
+        path: "/verify-otp",
         element: (
           <AnonymousRoute>
-            <RedirectPage />
+            <VerifyOTPPage />
           </AnonymousRoute>
         ),
       },
