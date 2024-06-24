@@ -38,17 +38,15 @@ export default function SqlEditor({
   );
 
   return (
-    <div>
-      <div className="mt-4 border rounded-lg p-1 my-3 lg:m-3">
-        <CodeMirror
-          height="30vh"
-          maxWidth="590px"
-          extensions={[extensions]}
-          value={userQuery}
-          onChange={(userQuery) => setUserQuery(userQuery)}
-          theme={codeMirrorTheme}
-        />
-      </div>
+    <div className="mt-4 border rounded-lg p-1 my-3 lg:m-3">
+      <CodeMirror
+        height="30vh"
+        maxWidth="auto"
+        extensions={[extensions]}
+        value={userQuery}
+        onChange={(userQuery) => setUserQuery(userQuery)}
+        theme={codeMirrorTheme}
+      />
     </div>
   );
 }

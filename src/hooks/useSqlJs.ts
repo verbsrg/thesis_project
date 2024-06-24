@@ -43,6 +43,14 @@ export function useSqlJs(initSql?: string): UseSqlJsResult {
         setError("Databáze nebyla inicializována");
         return null;
       }
+      const forbiddenClauses = ["DROP", "ALTER", "INSERT", "UPDATE", "DELETE"];
+
+      if (
+        forbiddenClauses.some((clause) => query.toUpperCase().includes(clause))
+      ) {
+        setError("Pouze SELECT dotazy jsou povolený");
+        return null;
+      }
       try {
         const result = db.exec(query);
         if (result && result.length > 0) {

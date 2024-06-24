@@ -11,8 +11,7 @@ import { useCheckResult } from "@/hooks/useCheckResult";
 import { useAuth } from "@/context/AuthProvider";
 import useAppStore from "@/store/appStore";
 import { useMediaQuery } from "react-responsive";
-import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { TabsContent } from "@radix-ui/react-tabs";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import Documentation from "@/components/Documentation";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import EditorButtons from "@/components/EditorButtons";
@@ -173,7 +172,7 @@ export default function LearnPage() {
   return (
     <div className="flex flex-col sm:flex-row sm:h-[calc(100vh-73px)]">
       {isDesktop ? <Tasks /> : null}
-      <div className={isDesktop ? "basis-1/3" : "basis-1/2"}>
+      <div className={isDesktop ? "basis-1/3 max-w-[32vw]" : "basis-1/2"}>
         <Task />
         {isDesktop ? (
           <>
