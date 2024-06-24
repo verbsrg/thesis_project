@@ -23,11 +23,10 @@ app.post("/api/aihelper", async (req, res) => {
   try {
     const response = await openai.chat.completions.create(
       {
-        model: "gpt-3.5-turbo",
-        messages: [{ role: "user", content: payload?.prompt }],
+        model: "gpt-4o",
+        messages: [{ role: "system", content: payload.prompt }],
         stream: true,
-        temperature: 0.5,
-        max_tokens: 1024,
+        temperature: 0.2,
       },
       { responseType: "stream" }
     );
