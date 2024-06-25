@@ -47,7 +47,7 @@ export default function SignUp() {
       toast({
         title: "Registrace",
         description:
-          "Na vaši emailovou adresu byl zaslan jednorázový aktiváční kód",
+          "Na vaši emailovou adresu byl zaslan jednorázový aktivační kód",
         variant: "success",
       });
       navigate(`/verify-otp?type=signup&email=${email}`);
@@ -63,7 +63,7 @@ export default function SignUp() {
           Na zadanou adresu bude zaslán e-mail s jednorázovým kódem.
         </AlertTitle>
         <AlertDescription className="flex justify-center">
-          Pokud zpravu nenajdete, podívejte se do spamu.
+          Pokud zprávu nenajdete, podívejte se do spamu.
         </AlertDescription>
       </Alert>
       <form
