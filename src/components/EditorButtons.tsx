@@ -35,7 +35,7 @@ export default function EditorButtons({
             <TooltipTrigger asChild className="disabled:cursor-not-allowed">
               <span tabIndex={0}>
                 <Button
-                  disabled={incorrectAttempts < 1 || showAiHelper || isCorrect!}
+                  disabled={incorrectAttempts < 3 || showAiHelper || isCorrect!}
                   variant={"outline"}
                   onClick={handleAiHelperClick}
                 >
@@ -45,7 +45,7 @@ export default function EditorButtons({
             </TooltipTrigger>
             <TooltipContent>
               <p>
-                {incorrectAttempts < 1
+                {incorrectAttempts < 3
                   ? "Bude k dispozici v případě 3 po sobě jdoucích špatných odpovědí"
                   : "AI nápověda je dostupná"}
               </p>

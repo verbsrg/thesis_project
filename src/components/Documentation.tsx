@@ -11,6 +11,6 @@ export default function Documentation({
       {markdown}
     </Markdown>
   ) : (
-    <p className="text-center">Není nalezena dokumentace</p>
+    <p className="text-center">Nebyla nalezena žádná dokumentace</p>
   );
 }

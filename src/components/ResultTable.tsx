@@ -65,9 +65,7 @@ function ResultTable({
               return (
                 <TableRow key={index}>
                   {row.map((column, index) => {
-                    return (
-                      column && <TableCell key={index}>{column}</TableCell>
-                    );
+                    return <TableCell key={index}>{column}</TableCell>;
                   })}
                 </TableRow>
               );

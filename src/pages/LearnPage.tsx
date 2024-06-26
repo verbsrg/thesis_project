@@ -124,7 +124,7 @@ export default function LearnPage() {
       });
     } else if (isCorrect !== null) {
       toast({
-        title: isCorrect ? "Hůra!" : "Někde máte chybu",
+        title: isCorrect ? "Hurá!" : "Někde máte chybu",
         description: isCorrect ? "Výsledek správný" : "Výsledek nesprávný",
         variant: isCorrect ? "success" : "destructive",
       });
