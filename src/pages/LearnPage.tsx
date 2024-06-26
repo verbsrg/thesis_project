@@ -60,7 +60,6 @@ export default function LearnPage() {
     setResults(undefined);
     const results = runQuery(query);
     if (results) setResults(results[0]);
-    console.log(results);
   }, [query, runQuery]);
 
   // helper function for running a query with Ctrl+Enter key combination

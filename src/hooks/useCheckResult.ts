@@ -38,8 +38,6 @@ export function useCheckResult({
       const userResults = normalizeResults(results!);
       const isCorrect =
         JSON.stringify(solutionResults) === JSON.stringify(userResults);
-      console.log(JSON.stringify(solutionResults));
-      console.log(JSON.stringify(userResults));
       isCorrect ? setIsCorrect(true) : setIsCorrect(false);
       setError(null);
     } catch (error) {

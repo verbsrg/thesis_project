@@ -58,7 +58,7 @@ function Tasks() {
 
   useEffect(() => {
     if (selectedDatabase && selectedCategory) {
-      useAppStore.getState().fetchTasks(selectedDatabase, selectedCategory);
+      useAppStore.getState().fetchTasks(selectedCategory);
     }
   }, [selectedDatabase, selectedCategory]);
 

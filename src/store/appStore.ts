@@ -23,10 +23,7 @@ interface AppState {
 interface AppActions {
   fetchDatabases: () => Promise<void>;
   fetchCategories: (database: Tables<"databases">) => Promise<void>;
-  fetchTasks: (
-    database: Tables<"databases">,
-    category: Tables<"categories">
-  ) => Promise<void>;
+  fetchTasks: (category: Tables<"categories">) => Promise<void>;
   insertCorrectAnswer: (userId: string, task: Tables<"tasks">) => Promise<void>;
   fetchCorrectAnswers: (userId: string) => Promise<void>;
   subscribeToCorrectAnswers: (userId: string) => () => void;
@@ -96,16 +93,12 @@ const useAppStore = create<AppState & AppActions>((set, get) => ({
     }
   },
 
-  fetchTasks: async (
-    database: Tables<"databases">,
-    category: Tables<"categories">
-  ) => {
+  fetchTasks: async (category: Tables<"categories">) => {
     set({ tasksLoading: true, taskError: null });
     try {
       const { data, error } = await supabase
         .from("tasks")
         .select("*")
-        .eq("database_id", database.id)
         .eq("category_id", category.id)
         .order("id", { ascending: true });
       if (error) throw error;
